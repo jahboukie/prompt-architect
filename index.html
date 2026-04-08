@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Architect | Deterministic Prompt Engineering</title>
+    <meta name="description" content="A professional tool for structuring LLM prompts using frameworks like CO-STAR and RISEN." />
+  </head>
+  <body>
+    <div id="app">
+      <aside>
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+          Prompt Architect
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-label">Frameworks</div>
+          <div id="framework-list">
+            <!-- Frameworks will be injected here -->
+          </div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-label">Actions</div>
+          <button class="nav-item" id="export-btn">
+            <i data-lucide="download"></i> Export JSON
+          </button>
+          <button class="nav-item" id="import-btn">
+            <i data-lucide="upload"></i> Import JSON
+          </button>
+          <input type="file" id="import-input" style="display: none" accept=".json" />
+        </div>
+
+        <div style="margin-top: auto">
+          <button class="nav-item" id="help-btn">
+            <i data-lucide="help-circle"></i> Help & Tips
+          </button>
+        </div>
+      </aside>
+
+      <main>
+        <header>
+          <h1 id="current-framework-name">CO-STAR</h1>
+          <div class="header-actions">
+            <button class="btn btn-ghost" id="clear-btn">
+              <i data-lucide="trash-2"></i> Clear
+            </button>
+          </div>
+        </header>
+
+        <div class="content-container">
+          <div class="panel">
+            <div class="composer-card">
+              <div id="composer-fields" class="fade-in">
+                <!-- Fields will be injected here -->
+              </div>
+            </div>
+
+            <div class="composer-card variables-section" id="variables-container" style="display: none">
+              <div class="nav-label">Detected Variables</div>
+              <div id="variable-inputs">
+                <!-- Variable inputs will be injected here -->
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="output-card panel">
+              <div class="output-header">
+                <span class="nav-label">Prompt Preview</span>
+                <button class="btn btn-primary" id="copy-btn">
+                  <i data-lucide="copy"></i> Copy Prompt
+                </button>
+              </div>
+              <div id="prompt-output" class="output-preview"></div>
+            </div>
+            
+            <div class="composer-card" id="framework-help-card" style="display: none">
+              <div class="nav-label">Framework Guide</div>
+              <p id="framework-help-text" style="font-size: 0.9rem; color: var(--text-secondary)"></p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </body>
+</html>
